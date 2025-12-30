@@ -3,7 +3,7 @@ console.log("scriptf1 loaded");
 const gsap = window.gsap;
 const { CustomEase } = window.gsap;
 const SplitType = window.SplitType;
-import { ProjectsData } from "./projects";
+import { ProjectsData } from "./projects.js";
 
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop","0.9, 0, 0.1, 1" );
