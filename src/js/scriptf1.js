@@ -1,5 +1,3 @@
-console.log("scriptf1 loaded");
-
 const gsap = window.gsap;
 const { CustomEase } = window.gsap;
 const SplitType = window.SplitType;
