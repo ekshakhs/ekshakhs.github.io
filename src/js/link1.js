@@ -1,8 +1,8 @@
-import gsap from "gsap";
-import { CustomEase } from "gsap/all";
-import SplitType from "split-type";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "@studio-freight/lenis";
+const gsap = window.gsap;
+const { CustomEase } = window.gsap;
+const SplitType = window.SplitType;
+const { ScrollTrigger } = window.gsap;
+const Lenis = window.Lenis;
 
 gsap.registerPlugin(ScrollTrigger);
 
