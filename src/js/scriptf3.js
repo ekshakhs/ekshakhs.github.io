@@ -1,7 +1,7 @@
-import gsap from "gsap";
-import { CustomEase } from "gsap/all";
-import SplitType from "split-type";
-import { ProjectsData } from "./projects";
+const gsap = window.gsap;
+const { CustomEase } = window.gsap;
+const SplitType = window.SplitType;
+import { ProjectsData } from "./projects.js";
 
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop","0.9, 0, 0.1, 1" );
