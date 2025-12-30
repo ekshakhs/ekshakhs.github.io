@@ -1,0 +1,319 @@
+@font-face{
+    font-family: "Akram";
+    src: url("/fonts/Akram.ttf") format("truetype");
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+:root {
+    --bg: #523333;
+    --fg: #fff;
+}
+
+body{
+    font-family: "PP Neue Montreal", sans-serif;
+    background-color: #bb6328;
+    overflow-x: hidden;
+}
+
+.pre-main {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffffd0;
+}
+
+.pre-main .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+    padding: clamp(1rem, 5vw, 2rem);
+}
+
+.pre-main.intro-done .overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pre-main .image-grid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(85vw, 500px);
+    max-width: 30%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5em, 2vw, 1em);
+    z-index: 1002;
+}
+
+.pre-main.intro-done .image-grid {
+    position: absolute;
+}
+
+@media (max-width: 768px) {
+    .pre-main .image-grid {
+        width: 85%;
+        max-width: 85%;
+    }
+    
+    .pre-main .overlay {
+        padding: 1rem;
+        gap: 1em;
+    }
+
+    .loader h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+}
+
+.main {
+    position: relative;
+    margin-top: 100vh;
+    background-color: var(--bg);
+    color: var(--fg);
+    z-index: 10;
+}
+p{
+    text-transform: uppercase;
+    font-family: "Akkurat Mono", monospace;
+    font-size: 0.7rem;
+}
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Akkurat Mono", monospace;
+    font-size: 0.7rem;
+    color: #000;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.1s ease;
+}
+
+.overlay{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height:100vh;
+    padding: 2rem;
+    background-color: #523333;
+    color: #fff;
+    display: flex;
+    gap: 2em;
+    overflow: hidden;
+}
+.projects, .loader, .locations{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+}
+.loader{
+    align-items: center;
+    gap: 0;
+}
+.loader h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Akram", serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    line-height: 0.9;
+    -webkit-text-fill-color: transparent;
+    background-clip:text;
+    background-image: linear-gradient(0deg, #000000, #000000 50%, #fff 0);
+    background-size: 100% 200%;
+    background-position: 0% 100%;
+    color: #000000;
+}
+.projects-header, .project-item, .locations-header, .location-item{
+    display: flex;
+    gap: 2em;
+    opacity: 0;
+}
+.projects-header > *, .locations-header > *{
+    flex:1;
+}
+.locations{
+    align-items: center;
+}
+.locations-header, .location-item{
+    width: 50%;
+}
+.project-item, .location-item{
+    color: #000000;
+}
+.image-grid{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    z-index: 2;
+}
+
+.grid-row{
+    width: 100%;
+    display: flex;
+    gap: 1em;
+
+}
+
+
+.img{
+    position: relative;
+    flex: 1;
+    aspect-ratio: 1;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+nav{
+    position: fixed;
+    width: 100vh;
+    padding: 1em;
+    display: flex;
+    gap: 2em;
+}
+nav > *{
+    flex:1;
+}
+
+.links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-logo{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.nav-logo a{
+    font-family: "Druk", sans-serif;
+    font-size: 1.75rem;
+    font-weight: bolder;
+    font-style: italic;
+    line-height: 0.9;
+}
+
+.banner-img{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 20%;
+    aspect-ratio: 4/5;
+}
+.intro-copy{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0.8em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.intro-copy h3, .title h1{
+    position: relative;
+    text-transform: uppercase;
+    color: #000;
+    font-family: "Druk", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 0.9;
+}
+
+.intro-copy h3{
+    font-size: 1.5rem;
+}
+.intro-copy h3, .title h1{
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.intro-copy h3 .word, .title h1 .word{
+    display: inline-block;
+    position: relative;
+    will-change: transform;
+    margin-right: 0.1rem;
+}
+.enter-btn{
+    position: fixed;
+    bottom: 6vh;
+    right: 10%;
+    transform: translateX(-50%);
+    font-size: 7rem;
+    background: none;
+    border: none;
+    color:rgba(90, 25, 12, 0.5);
+cursor: pointer;
+opacity: 0;
+transition: opacity 0.8s ease;
+z-index: 1000;}
+body.loaded .enter-btn{
+    opacity: 1;
+
+}
+.arrow-up{
+    display: inline-block;
+}
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height : 100%;
+    background: radial-gradient(circle at center, #11111195 0%, #000000c3 100%);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2000;
+}
+@media (max-width: 900px) {
+    .loader{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .projects, .locations, .intro-copy, .banner-img{display: none;}
+
+    .title{
+        width: 100%;
+        bottom: 20%;
+        display: flex;
+        justify-content: center;
+    }
+    .title h1{
+        font-size: 2.5rem;
+    }
+    .image-grid{
+        width: 75%;
+        gap: 0.5em;
+    }
+    .grid-row{
+        width: 95%;
+        justify-content: space-around;
+        gap: 0.5em;
+    }
+}

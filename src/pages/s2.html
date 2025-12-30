@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THP - ek shakhs'</title>
+
+    <script type="module" crossorigin src="./src/js/scriptf2.js"></script>
+    <link rel="stylesheet" crossorigin href="./src/styles/designf2.css" type="text/css">
+</head>
+<body>
+    <section class="intro">
+        <h1 class="line">Just trying to make sense of what's made to look normal.</h1>
+    </section>
+    <section class="sticky">
+        <div class="sticky-header">
+            <h1 class="main">THE<br> HAARSH<br> PALIMPSEST</h1>
+        </div>
+        <div class="card-container">
+            <div class="card" id="card-1">
+                <div class="card-front">
+                    <img src="./images/left.jpg" alt="Interactive web experience">
+                </div>
+                <div class="card-back">
+                    <span>(I)</span>
+                    <p>The ledger.</p>
+                      
+                </div>
+            </div>
+            <div class="card" id="card-2">
+                <div class="card-front">
+                    <img src="./images/center.jpg" alt="Interactive books experience">
+                </div>
+                <div class="card-back">
+                    <span>(II)</span>
+                    <p>The papers.</p>
+                </div>
+            </div>
+            <div class="card" id="card-3">
+                <div class="card-front">
+                    <img src="./images/right.jpg" alt="Interactive reading experience">
+                </div>
+                <div class="card-back">
+                    <span>(III)</span>
+                    <p>The prologue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {   
+        const card1Back = document.querySelector("#card-1 .card-back");
+if (card1Back) {
+    card1Back.addEventListener("click", () => {
+    
+            window.location.href = "/comp/card1.html";
+    });
+}
+    });
+   
+</script>
+
+</body>
+</html>

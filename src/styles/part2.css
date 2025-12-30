@@ -1,0 +1,401 @@
+
+@font-face{
+    font-family: "Message";
+    src: url("/fonts/OrangeAvenueDEMO-Regular.otf") format("opentype");
+}
+@font-face{
+    font-family: "foldername";
+    src: url("/fonts/latosce.ttf") format("truetype");
+}
+@font-face{
+    font-family: "foldername2";
+    src: url("/fonts/blasse.otf") format("opentype");
+}
+:root{
+    --bg: #f4f7f0;
+    --fg: #0f0f0f;
+    --variant-1: #bb6328;
+    
+     --variant-2: #b0b3ad;
+    --variant-3: #806051;
+   
+    --disabled-folder-bg: #e8ebe4;
+    --disabled-folder-fg: #b0b3ad;
+}
+
+body{
+    background-color: var(--bg);
+}
+
+
+.part2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.part2 h1{
+
+   font-family: "foldername", serif;
+    font-size: 2.75rem;
+    font-weight: 200;
+}
+p{
+    text-transform: uppercase;
+    font-family: "Message", serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    
+}
+
+.part2 h1, p{
+    transition: color 250ms ease;
+    line-height: 1;
+
+color: rgb(25, 6, 25);
+}
+.part2 .top{
+    font-size: 0.9rem;
+font-weight: 200;
+color: #000000;
+background-color: #540f0f8b;
+}
+.part2 nav{
+    position: absolute;
+    top: 0;
+   
+
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.part2 .folders{
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  
+}
+
+
+.part2 .row{
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.part2 .folder{
+    position: relative;
+    flex: 1;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.row:nth-child(2) .folder:nth-child(1) {
+    flex: 2;
+}
+
+.row:nth-child(2) .folder:nth-child(2) {
+    flex:3;
+}
+
+
+
+.folder-preview {
+  position: absolute;
+  width: 25rem;
+  top:80%;
+  left: 50%;
+  height: 100%; /* adjust height to control rise room */
+  transform: translateX(-50%);
+  z-index: 1;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.folder-preview-image {
+  position: absolute;
+  width: 9rem; /* smaller, proportional */
+  height: 12rem; /* gives space for animation */
+  object-fit: cover;
+  top: -75%; /* starts around mid-folder */
+  left: 85%;
+  transform: translate(-100%, 0) ;
+  transform-origin: center bottom;
+  border-radius: 0.3rem;
+ object-fit: cover;
+  transition: all 0.3s ease;
+  z-index: 0;
+  will-change: transform;
+}
+
+.folder-preview-img:nth-child(1){
+    left: 20%;
+    transform-origin: top left;
+}
+.folder-preview-img:nth-child(2){
+    left: 50%;
+    transform-origin: center;
+}
+.folder-preview-img:nth-child(3){
+    left: 80%;
+    transform-origin: top right;
+}
+
+.folder-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: visible;
+    
+    z-index: 0;
+}
+
+.folder-index{
+    position: relative;
+    width: 40%;
+    padding: 0.75rem;
+}
+
+
+.folder-index::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 99%;
+    height: 101%;
+    aspect-ratio: 1;
+    clip-path: polygon(0 0, 25% 0, 100% 100%, 0% 100%);
+}
+
+.folder-name{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 0 0.25rem;
+    padding-left: 2rem;
+}
+
+.folder-index, .folder-index::after, .folder-name{
+    transition: background-color 250ms ease;
+}
+
+.folder.variant-1 .folder-index,
+.folder.variant-1 .folder-index::after,
+.folder.variant-1  .folder-name{
+    background-color: var(--variant-1);
+}
+.folder.variant-2 .folder-index,
+.folder.variant-2 .folder-index::after,
+.folder.variant-2  .folder-name{
+    background-color: var(--variant-2);
+}
+.folder.variant-3 .folder-index,
+.folder.variant-3 .folder-index::after,
+.folder.variant-3  .folder-name{
+    background-color: var(--variant-3);
+}
+
+.folder.disabled .folder-index,
+.folder.disabled .folder-index::after,
+.folder.disabled .folder-name{
+    background-color: var(--disabled-folder-bg);
+}
+.folder.disabled p,
+.folder.disabled h1{
+    color: var(--disabled-folder-fg)
+}
+
+.row:nth-child(1){
+    bottom: -6rem;
+}
+.row:nth-child(2){
+    bottom: 0rem;
+}
+.row:nth-child(3){
+    bottom: 7rem;
+}
+.folder[data-locked="true"]{
+    pointer-events: none;
+    cursor: default;
+}
+
+/* ---------------------------- */
+/* WILDRIFTIAN VERTICAL FOLDERS */
+/* ---------------------------- */
+.folder-wrapper-x{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    overflow: visible;
+    
+    z-index: 0;
+}
+
+.folder.variant-4.wild-vertical .folder-index,
+.folder.variant-4.wild-vertical .folder-index::after,
+.folder.variant-4.wild-vertical .folder-name,
+.folder.variant-4.wild-vertical .folder-body{
+    background-color: #40403e;
+    margin-bottom: 0;
+}
+
+.folder.wild-vertical, .folder.variant-4.wild-vertical {
+    height: auto;
+   padding-bottom: 0;
+   
+   
+}
+
+
+.folder.wild-vertical .folder-wrapper-x {
+    padding-bottom: 0;
+    width: 100%;
+}
+
+
+.folder-body {
+    padding: 2rem;
+    padding-left: 3rem;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: -1;
+}
+
+
+.folder-body p {
+   
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 450px;
+  
+}
+.folder-name .inn{
+    font-family: "foldername2", serif;
+    font-size: 2.9rem;
+    text-align: left;
+
+}
+.folder-name .inn .h1{
+ padding: 0 clamp(4rem, 12vw, 20rem);
+    display: grid;
+    
+}
+.folder.variant-4.wild-vertical {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+}
+.folder.variant-4.wild-vertical .folder-body-img {
+
+ position: absolute;
+ inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 418%;
+  object-fit: contain;
+  left: 0;
+  top: -297%;
+overflow: hidden;
+  opacity: 0.25;
+  filter: saturate(0.9) contrast(1.05);
+}
+.folder.variant-4.wild-vertical .folder-name,
+.folder.variant-4.wild-vertical .folder-body {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 600px){
+    
+
+    .folder.variant-4.wild-vertical .folder-body-img {
+    height: 600%;
+    width: 100%;
+    top: -500%;
+    left: -50%;
+    object-fit: cover;
+}
+.folder-name .inn {
+  max-width: 100%;
+}
+.folder-name .inn .h1 {
+   font-size: 2rem;}
+    .folder{
+        top: 1%;
+    }
+    .part2 h1{
+
+   
+    font-size: 2rem;
+    font-weight: 200;}
+    .folder.variant-3{
+        top: -1%;
+    
+    }
+    .folder.variant-2{
+        top: -1%;
+    }
+    body{
+        width: 100%;
+    }
+    .folder-body-img {
+        margin-left: 50%;
+        width: 120px;
+        height: 120px;
+    }
+    .folder.variant-4.wild-vertical{
+        width: 100%;
+        bottom: 0 !important;
+        margin-bottom: 0;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .row{
+        flex-direction: column;
+        bottom: 0 !important;
+    }
+    .folder{
+        margin-bottom: -0.15rem;
+    }
+    .folder-preview{
+        overflow: visible;
+        display: none;
+    }
+
+    .folder-name{
+        padding: 0 2rem 2rem;
+    }
+
+    .row:nth-child(2) .folder.variant-2 .folder-index,
+    .row:nth-child(2) .folder.variant-2 .folder-index::after,
+    .row:nth-child(2) .folder.variant-2 .folder-name {
+        background-color: var(--variant-3);
+    }
+    .row:nth-child(2) .folder.variant-3 .folder-index,
+    .row:nth-child(2) .folder.variant-3 .folder-index::after,
+    .row:nth-child(2) .folder.variant-3 .folder-name {
+        background-color: var(--variant-2);
+    }
+
+
+}
